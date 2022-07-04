@@ -53,6 +53,7 @@ nav {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 999;
 }
 
 nav a {
@@ -78,6 +79,12 @@ display: flex;
 justify-content: flex-end;
 width: 100%;
 }
+
+nav .navbar-container .navbar-navigation-container ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  }
 
 nav .navbar-container .navbar-navigation-container a {
   font-size: 16px;
@@ -107,19 +114,21 @@ header .header-container .seperator-container {
   width: 100%;
 }
 
-header .header-container .seperator-container .line-separator { 
+header .header-container .seperator-container .line-separator-left { 
   height: 0.2rem;
   width: 10rem;
   border-radius: 20rem;
-  background-color: white;  
-}
-
-header .header-container .seperator-container #right { 
-  margin: 0 0 0 16px;
-}
-
-header .header-container .seperator-container #left{ 
+  background-color: white;
   margin: 0 16px 0 0 ;
+}
+
+header .header-container .seperator-container .line-separator-right { 
+  height: 0.2rem;
+  width: 10rem;
+  border-radius: 20rem;
+  background-color: white;
+  margin: 0 16px 0 0 ;
+  margin: 0 0 0 16px;
 }
 
 header .header-container .seperator-container svg { 
@@ -155,19 +164,20 @@ section .portfolio-container .seperator-container {
   width: 100%;
 }
 
-section .portfolio-container .seperator-container .line-separator { 
+section .portfolio-container .seperator-container .line-separator-left { 
   height: 0.2rem;
   width: 10rem;
   border-radius: 20rem;
-  background-color: #2c3e50;  
+  background-color: #2c3e50; 
+  margin: 0 16px 0 0 ; 
 }
 
-section .portfolio-container .seperator-container #right { 
+section .portfolio-container .seperator-container .line-separator-right { 
+  height: 0.2rem;
+  width: 10rem;
+  border-radius: 20rem;
+  background-color: #2c3e50; 
   margin: 0 0 0 16px;
-}
-
-section .portfolio-container .seperator-container #left{ 
-  margin: 0 16px 0 0 ;
 }
 
 section .portfolio-container .seperator-container svg { 
@@ -188,23 +198,52 @@ section .portfolio-container .portfolio-items-container .img-group {
   justify-content: center !important ;
 }
 
-section .portfolio-container .portfolio-items-container img {
-  width: 336px;
+section .portfolio-container .portfolio-items-container .portfolio-item-container {
+  background-size: cover;
+  width: 312px;
   height: 243px;
   border-radius: 1rem;
-  padding: 0 12px;
   position: relative;
-  opacity: 50%;
+  opacity: 100%;
+  margin: 0 12px;
+}
+
+section .portfolio-container .portfolio-items-container #cabin {
+  background-image: url(/images/cabin.png);
+}
+
+section .portfolio-container .portfolio-items-container #cake {
+  background-image: url(/images/cake.png);
+}
+section .portfolio-container .portfolio-items-container #circus {
+  background-image: url(/images/circus.png);
+}
+
+section .portfolio-container .portfolio-items-container #game {
+  background-image: url(/images/game.png);
+}
+
+section .portfolio-container .portfolio-items-container #safe {
+  background-image: url(/images/safe.png);
+}
+
+section .portfolio-container .portfolio-items-container #submarine {
+  background-image: url(/images/submarine.png);
 }
 
 section .portfolio-container .portfolio-items-container .link-svg-container {
   width: 312px;
   height: 243px;
   border-radius: 1rem;
-  margin: 0 12px;
   background-color: #1abc9c;
   position: absolute;
+  opacity: 0;
 }
+
+section .portfolio-container .portfolio-items-container .portfolio-item-container:hover > .link-svg-container {
+  opacity: 80%;
+}
+
 
 section .portfolio-container .portfolio-items-container svg {
   position: absolute;
@@ -241,19 +280,20 @@ section .about-container .seperator-container {
   width: 100%;
 }
 
-section .about-container .seperator-container .line-separator { 
+section .about-container .seperator-container .line-separator-left { 
   height: 0.2rem;
   width: 10rem;
   border-radius: 20rem;
-  background-color: white;  
+  background-color: white;
+  margin: 0 16px 0 0 ;  
 }
 
-section .about-container .seperator-container #right { 
+section .about-container .seperator-container .line-separator-right { 
+  height: 0.2rem;
+  width: 10rem;
+  border-radius: 20rem;
+  background-color: white;
   margin: 0 0 0 16px;
-}
-
-section .about-container .seperator-container #left{ 
-  margin: 0 16px 0 0 ;
 }
 
 section .about-container .seperator-container svg { 
@@ -270,18 +310,12 @@ section .about-container .about-paragraph-container .p-box {
   width: 50%;
 }
 
-/* section .about-container .about-paragraph-container .p-box-two{
-  margin: 0 220px 0 0;
-  padding: 0 12px;
-} */
-
-section .about-container .about-paragraph-container #left {
+section .about-container .about-paragraph-container #left-paragraph {
   padding-left: 20rem;
   padding-right: 1rem;
 }
 
-
-section .about-container .about-paragraph-container #right {
+section .about-container .about-paragraph-container #right-paragraph {
   padding-right: 20rem;
   padding-left: 1rem;
 }
@@ -312,6 +346,7 @@ section .about-container svg {
   height: 1rem;
 }
 
+
 /* contact section */
 
 section .contact-me-container {
@@ -331,19 +366,20 @@ section .contact-me-container .seperator-container {
   width: 100%;
 }
 
-section .contact-me-container .seperator-container .line-separator { 
+section .contact-me-container .seperator-container .line-separator-left { 
   height: 0.2rem;
   width: 10rem;
   border-radius: 20rem;
   background-color:#2c3e50;  
-}
-
-section .contact-me-container .seperator-container #right { 
-  margin: 0 0 0 16px;
-}
-
-section .contact-me-container .seperator-container #left{ 
   margin: 0 16px 0 0 ;
+}
+
+section .contact-me-container .seperator-container .line-separator-right { 
+  height: 0.2rem;
+  width: 10rem;
+  border-radius: 20rem;
+  background-color:#2c3e50;
+  margin: 0 0 0 16px; 
 }
 
 section .contact-me-container .seperator-container svg { 
@@ -388,7 +424,7 @@ section .contact-me-container form label {
 section .contact-me-container form button { 
   color: #fff;
   background-color: #1abc9c;
-  border-color: #1abc9c;
+  border: none;
   padding: 1rem 1.75rem;
   font-size: 1.25rem;
   cursor: pointer;
@@ -400,10 +436,7 @@ section .contact-me-container form button {
   text-decoration: none;
   vertical-align: middle;
   margin-top: 1rem;
-
 }
-
-
 
 /* footer */
 
